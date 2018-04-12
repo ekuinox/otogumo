@@ -4,7 +4,7 @@ import fs from "fs-extra";
 
 const target_url = "https://soundcloud.com/gommiofficial/kayzo-this-time-gommi-x-tyeguys-remix";
 
-const output = "";
+const output_dir = "./";
 
 const sc: {
 	client_id: string,
@@ -22,7 +22,9 @@ const sc: {
 
 	const track = JSON.parse(await Request(track_url, {}, { client_id: sc.client_id }));
 
-	console.log(track);
+	if (!track.streamable) return;
+
+	request(track.stream_url, { qs: { client_id: sc.client_id }}).pipe(fs.createWriteStream(`./${track.title}.mp3`));
 })();
 
 function Request(url: string, headers?: request.Headers, params?: any) {
