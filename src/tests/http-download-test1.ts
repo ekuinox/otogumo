@@ -6,10 +6,10 @@ const target_url = "https://soundcloud.com/gommiofficial/kayzo-this-time-gommi-x
 
 const output = "";
 
-const sc = {
-	client_id: "",
-	client_secret: ""
-};
+const sc: {
+	client_id: string,
+	client_secret: string,
+} = JSON.parse(fs.readFileSync("./conf/keys.json", "utf8"));
 
 (async () => {
 	const track_html = await Request(target_url, { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.121 Safari/537.36 Vivaldi/1.95.1077.41" });

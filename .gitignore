@@ -2,3 +2,4 @@ otogumo.code-workspace
 node_modules/
 package-lock.json
 dist/
+conf/keys.json
