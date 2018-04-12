@@ -16,9 +16,8 @@ const sc: {
 	// 元のURLからtrackのidを逆引きして
 	const track_id = await client.resolveUrl(target_url);
 	// track情報引っ張って
-	const track = await client.getTrack(track_id);
-	// streamableじゃなかったら諦めて
-	if (!track.streamable) return;
-	// mp3として落とし込む（ここmp3固定でいいのかな？）
-	client.download(track.stream_url, `${output_dir}${track.title}.mp3`);
+    const track = await client.getTrack(track_id);
+
+    // 情報を吐く
+    console.log(track.downloadable, track.download_url, track.streamable, track.stream_url, track.title, track.user.username);
 })();
