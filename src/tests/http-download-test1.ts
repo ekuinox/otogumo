@@ -24,7 +24,7 @@ const sc: {
 
 	if (!track.streamable) return;
 
-	request(track.stream_url, { qs: { client_id: sc.client_id }}).pipe(fs.createWriteStream(`./${track.title}.mp3`));
+	request(track.stream_url, { qs: { client_id: sc.client_id }}).pipe(fs.createWriteStream(`${output_dir}${track.title}.mp3`));
 })();
 
 function Request(url: string, headers?: request.Headers, params?: any) {
