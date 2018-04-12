@@ -1,5 +1,4 @@
 import request from "request";
-import util from "util";
 import fs from "fs-extra";
 
 namespace Otogumo {
